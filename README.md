@@ -150,21 +150,21 @@ ____________________________________________
 
 ### Passos para Instalação e Configuração do Robot+Flutter Driver+Appium
 
-#### Projeto Flutter
+### Projeto Flutter
 
 1. Clone o projeto flutter
 
 i. ATENÇÃO: Na hora de clonar o projeto flutter em uma pasta, deve ser em uma pasta cujo o nome não deve possuir espaço ou caracteres especiais, pois atrapalha a comunicação flutter com o emulador mobile
 
 ```bash
-    git clone https://github.com/{gitUser}/{nomeRepositorio}.git
+git clone https://github.com/{gitUser}/{nomeRepositorio}.git
 ```
 2. Abra o projeto flutter
 
 i. ATENÇÃO: Quando abrir o projeto flutter, baixe as dependencias do flutter
 
 ```bash
-    flutter pub get
+flutter pub get
 ```
 
 3. Adicione o pacote do flutter driver nas dependencias de desenvolvimento no arquivo ```pubspec.yaml```
@@ -191,7 +191,9 @@ i. ATENÇÃO: deve adicionar a função antes da função ```runApp()```
         }
     ```
 
-#### JavaScript e Appium Client Library
+### JavaScript e Appium Client Library
+
+#### PROJETO DO ZERO
 
 1. Para criar os testes mobile com appium, deve instalar uma biblioteca appium cliente, para isso instale a biblioteca WebdriverIO.
 
@@ -223,7 +225,7 @@ npm i -D appium appium-flutter-driver appium-flutter-finder @wdio/cli
 
 b. Rode o comando para iniciar ou alterar a configuração do pacote ```@wdio```
 ```bash
-./node_modules/.bin/wdio config
+npx wdio config
 ```
 
 c. Exemplo das configurações (os passos de diretório foram removidos neste exemplo):
@@ -248,7 +250,13 @@ dom-testing-library.
 ? Do you want me to run `npm install` Yes
 ```
 
-3. Instale o comando para instalar o pacote allure-commandline
+3. Instale o pacote ```assert``` com dev dependence para validar e verificar algumas ações
+
+```bash
+npm i -D assert
+```
+
+4. Instale o comando para instalar o pacote allure-commandline
 
 ```bash
 npm install -g allure-commandline --save-dev
@@ -256,7 +264,7 @@ npm install -g allure-commandline --save-dev
 
 i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter)
 
-4. Configure o arquivo ```wdio.conf.js``` encontre as variáveis ```path``` e a ```baseUrl```, e adicione os valores demonstrados abaixo:
+5. Configure o arquivo ```wdio.conf.js``` encontre as variáveis ```path``` e a ```baseUrl```, e adicione os valores demonstrados abaixo:
 
 i. Essas variáveis vem setadas vazias como default;
 
@@ -265,7 +273,7 @@ path: '/wd/hub',
 baseUrl: 'http://localhost',
 ```
 
-5. Configure os capabilities do appium no arquivo ```wdio.conf.js``` como o exemplo abaixo:
+6. Configure os capabilities do appium no arquivo ```wdio.conf.js``` como o exemplo abaixo:
 
 i. Nesse cenário estamos configurando apenas o android.
 
@@ -274,7 +282,7 @@ i. Nesse cenário estamos configurando apenas o android.
         platformName: 'Android',
         'appium:deviceName': 'emulator-5554',
         'appium:platformVersion': '12.0',
-        'appium:automationName': 'flutter',
+        'appium:automationName': 'Flutter',
         'appium:app': '../flutter_application/build/app/outputs/flutter-apk/app-debug.apk',
         'appium:appPackage': 'com.example.flutter_application',
         'appium:appActivity': 'com.example.flutter_application.MainActivity',
@@ -283,16 +291,24 @@ i. Nesse cenário estamos configurando apenas o android.
 ```
 __obs__: Caso houver alguma dúvida ou dificuldade, procure essas referências para auxilio: [Documentação do Appium](https://appium.io/docs/en/2.1/),[Simplifying Flutter App Automation](https://dev.to/bhadmus/simplifying-flutter-app-automation-2abe) e [Appium in JavaScript](https://testautomationu.applitools.com/appium-javascript-tutorial/)
 
-#### Appium
+#### PROJETO JÁ CRIADO:
 
-3. Comando para rodar o servidor do appium
+1. Com o projeto clonado, rode o comando na pasta ```Tests```:
+
+```bash
+npm install
+```
+
+### Appium
+
+1. Comando para rodar o servidor do appium
 
 ```bash
 appium --base-path=/wd/hub
 ```
 __obs:__ Se houver erro referente ao appium, entre na documentação do appium [Migrating from Appium 1.x to Appium 2.x](https://appium.io/docs/en/2.0/guides/migrating-1-to-2/#image-analysis-features-moved-to-plugin)
 
-4. Configurar o __Appium Inspector__ com os mesmos dados do arquivo ```wdio.conf.js```. Exemplo:
+2. Configurar o __Appium Inspector__ com os mesmos dados do arquivo ```wdio.conf.js```. Exemplo:
 
 i. automationName se ```UIAutomator2``` abre o aplicativo no appium inspector, se for ```flutter``` abre apenas a aplicação no emulador
 

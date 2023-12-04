@@ -23,6 +23,7 @@
     "appium-flutter-driver": "^2.2.4",
     "appium-flutter-finder": "^0.2.0",
     "appium-uiautomator2-driver": "^2.34.2",
+    "assert": "^2.1.0",
     "wdio-wait-for": "^3.0.9"
   }
 }

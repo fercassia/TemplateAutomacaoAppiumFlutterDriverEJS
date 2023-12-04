@@ -59,7 +59,7 @@ exports.config = {
         platformName: 'Android',
         'appium:deviceName': 'emulator-5554',
         'appium:platformVersion': '12.0',
-        'appium:automationName': 'flutter',
+        'appium:automationName': 'Flutter',
         'appium:app': '../flutter_application/build/app/outputs/flutter-apk/app-debug.apk',
         'appium:appPackage': 'com.example.flutter_application',
         'appium:appActivity': 'com.example.flutter_application.MainActivity',
@@ -140,7 +140,7 @@ exports.config = {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: false,
-        // disableMochaHooks: true
+        disableMochaHooks: true
     }]],
 
     onComplete: function() {
