@@ -34,13 +34,13 @@ class CountPage {
         return $(find.byTooltip('Restore'));
     }
     
-    incrementTimes = (numberToInterect) => {
+    incrementClickTimes = (numberToInterect) => {
         for(increment = 0; increment < numberToInterect; increment++){
             driver.elementClick(btnIncrement);
         }
     }
 
-    decrementTimes = (numberToInterect) => {
+    incrementClickTimes = (numberToInterect) => {
         for(decrement = numberToInterect; decrement <= 0; decrement--){
             driver.elementClick(this.btnDecrement);
         }
