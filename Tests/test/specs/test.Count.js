@@ -1,34 +1,58 @@
 const find = require('appium-flutter-finder')
-const assert = require('assert')
+const assert = require('assert');
+const countPage = require('../pageobjects/count.page');
+const { count } = require('console');
 
-    //TODO: Refatorar os testes e criar page object
-    //TODO: Adicionar uma solução que mate o node toda hora que rodar os testes
+    //TODO: Colocar todo teste que finalizar, fechar o apk
+    //TODO: Criar um taskkill appium session a força
     //TODO: adicionar um report do allure
 
 describe('Tests count page', () => {
+    beforeEach (async () => {
+        const initialValue = '0';
+        await countPage.setTextValue(initialValue);
+    }),
+    
     it('should see the text in count page', async()=>{
-        const txt = find.byText('You have pushed the button this many times:');
-        assert.strictEqual(await driver.getElementText(txt),
+        const txt = countPage.txtHowManyTimes;
+        await assert.strictEqual(await driver.getElementText(txt),
             'You have pushed the button this many times:')
     }),
+
     it('should 0 as initial value', async()=>{
-        const initialValue = find.byText('0');
-        assert.strictEqual(await driver.getElementText(initialValue),'0')
-    })
+        const txtValue = countPage.txtValue;
+        await assert.strictEqual(await driver.getElementText(txtValue),'0')
+    }),
+
     it('should increment until value become 2', async()=>{
-        const initialNumber = '0';
-        const finalNumber = '2';
-        
-        const initialValue = find.byText(initialNumber);
-        const finalValue = find.byText(finalNumber);
+        //Arrange 
+        const incrementTimes = 2;
+        await countPage.setTextValue(incrementTimes);
 
-        const btnIncrement = find.byTooltip('Increment');
+        //Action
+        await countPage.toIncrement(incrementTimes);
 
-        await driver.getElementText(initialValue);
-        await driver.elementClick(btnIncrement);
-        await driver.elementClick(btnIncrement);
+        //Assert
+        const getNewValue = await driver.getElementText(countPage.txtValue);
+        await assert.strictEqual(getNewValue,'2');
+    })
 
-        assert.strictEqual(await driver.getElementText(finalValue),'2')
+    it('should decrement until value become 4', async()=>{
+        //Arrange 
+        const incrementTimes = 10;
+        const decrementTimes = 6;
+        const result = 4;
+
+        await countPage.setTextValue(result);
+
+        //Action
+        await countPage.toIncrement(incrementTimes);
+        await countPage.toDecrement(decrementTimes);
+
+        //Assert
+        const getNewValue = await driver.getElementText(countPage.txtValue);
+        await assert.strictEqual(getNewValue,'4');
     })
 })
+
 

@@ -286,7 +286,9 @@ i. Nesse cenário estamos configurando apenas o android.
         'appium:app': '../flutter_application/build/app/outputs/flutter-apk/app-debug.apk',
         'appium:appPackage': 'com.example.flutter_application',
         'appium:appActivity': 'com.example.flutter_application.MainActivity',
-        'appium:noReset': true
+        'appium:noReset': true,
+        'appium:newCommandTimeout': '7200',
+        'appium:sessionOverride': true,
     }]
 ```
 
@@ -355,10 +357,13 @@ npm run allure-report
 
 1. Se houver o erro ao rodar o teste, referente ao appium: HTTP Could not start REST http interface listener - Rode o comando de acordo com solução. Para matar o processo do tipo PID - [Appium Question. If "listen eaddrinuse: address already in use", how to stop it? why it didn't stop?](https://stackoverflow.com/questions/61122027/appium-question-if-listen-eaddrinuse-address-already-in-use-how-to-stop-it) 
 
+i. ATENÇÃO: O Appium service está programado para sobrepor a sessão do appium, e também está programado para esperar um tempo o cliente interagir, se não interagir até esse tempo a sessao é desligada, para saber mais leia a sobre [Capabilities](https://appium.io/docs/en/2.2/guides/caps/). Mas caso acontecer esse problema citado acima, rode o comando abaixo.
+
 ```bash
 netstat -ano|findstr "PID :4723"
 taskkill /pid {PIDNumber} /f
 ```
+
 2.  Se houver o erro ao rodar o teste, Error: "ts-node/esm/transpile-only 'resolve'" - Rode o comando de acordo com solução - [Error: "ts-node/esm/transpile-only 'resolve'" did not call the next hook in its chain and did](https://stackoverflow.com/questions/75471228/error-ts-node-esm-transpile-only-resolve-did-not-call-the-next-hook-in-its) 
 
 ```bash

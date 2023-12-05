@@ -61,7 +61,9 @@ exports.config = {
         'appium:app': '../flutter_application/build/app/outputs/flutter-apk/app-debug.apk',
         'appium:appPackage': 'com.example.flutter_application',
         'appium:appActivity': 'com.example.flutter_application.MainActivity',
-        'appium:noReset': true
+        'appium:noReset': true,
+        'appium:newCommandTimeout': '2500',
+        'appium:sessionOverride': true
     }],
 
     //
@@ -272,6 +274,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     // afterSession: function (config, capabilities, specs) {
+        
     // },
     /**
      * Gets executed after all workers got shut down and the process is about to exit. An error
