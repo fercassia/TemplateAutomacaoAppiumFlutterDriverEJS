@@ -1,29 +1,30 @@
 {
   "name": "tests",
   "version": "1.0.0",
-  "description": "Automação de testes em mobile flutter utilizando appium flutter driver",
+  "description": "Tests for mobile flutter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.js",
-    "allure-report": "allure generate [allure_output_dir] && allure open"
+    "wdio": "wdio run ./wdio.conf.js"
   },
-  "author": "Fernanda Cassia",
+  "author": "Fernanda Cássia",
   "license": "ISC",
   "devDependencies": {
     "@testing-library/webdriverio": "^3.2.1",
-    "@wdio/allure-reporter": "^8.24.2",
     "@wdio/appium-service": "^8.24.6",
     "@wdio/cli": "^8.24.6",
-    "@wdio/concise-reporter": "^8.24.2",
     "@wdio/local-runner": "^8.24.6",
     "@wdio/mocha-framework": "^8.24.6",
     "@wdio/spec-reporter": "^8.24.2",
-    "appium": "^2.2.2",
+    "appium": "^2.2.3",
     "appium-flutter-driver": "^2.2.4",
     "appium-flutter-finder": "^0.2.0",
     "appium-uiautomator2-driver": "^2.34.2",
+    "appium-wait-plugin": "^2.0.3",
+    "appium-xcuitest-driver": "^5.11.8",
     "assert": "^2.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
     "wdio-wait-for": "^3.0.9"
   }
 }

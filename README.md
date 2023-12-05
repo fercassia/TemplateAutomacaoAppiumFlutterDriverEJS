@@ -240,7 +240,7 @@ c. Exemplo das configurações (os passos de diretório foram removidos neste ex
 ? Do you want to use a compiler? No!
 ? Do you want WebdriverIO to autogenerate some test files? Yes
 ? Do you want to use page objects (https://martinfowler.com/bliki/PageObject.html)? Yes
-? Which reporter do you want to use? spec, allure
+? Which reporter do you want to use? spec
 ? Do you want to add a plugin to your test setup? wait-for: utilities that provide functionalities to wait for certain conditions till 
 a defined task is complete.
    > https://www.npmjs.com/package/wdio-wait-for, Testing Library: utilities that encourage good testing practices laid down by        
@@ -255,14 +255,14 @@ dom-testing-library.
 ```bash
 npm i -D assert
 ```
-
-4. Instale o comando para instalar o pacote allure-commandline
+<!-- 
+4. Instale o comando para instalar o pacote allure-commandline salvando como dev dependecie
 
 ```bash
-npm install -g allure-commandline --save-dev
-```
+npm i -D allure-commandline
+``` -->
 
-i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter)
+<!-- i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter) -->
 
 5. Configure o arquivo ```wdio.conf.js``` encontre as variáveis ```path``` e a ```baseUrl```, e adicione os valores demonstrados abaixo:
 
@@ -289,6 +289,7 @@ i. Nesse cenário estamos configurando apenas o android.
         'appium:noReset': true
     }]
 ```
+
 __obs__: Caso houver alguma dúvida ou dificuldade, procure essas referências para auxilio: [Documentação do Appium](https://appium.io/docs/en/2.1/),[Simplifying Flutter App Automation](https://dev.to/bhadmus/simplifying-flutter-app-automation-2abe) e [Appium in JavaScript](https://testautomationu.applitools.com/appium-javascript-tutorial/)
 
 #### PROJETO JÁ CRIADO:
@@ -315,7 +316,7 @@ i. automationName se ```UIAutomator2``` abre o aplicativo no appium inspector, s
 ```bash
 {
   "platformName": "Android",
-  "appium:automationName": "flutter",
+  "appium:automationName": "Flutter",
   "appium:platformVersion": "12",
   "appium:deviceName": "emulator-5554",
   "appium:app": "C:\\Users\\{users}\\OneDrive\\Documents\\TemplateAutomacaoAppiumFlutterDriverEJS\\flutter_application\\build\\app\\outputs\\apk\\debug\\app-debug.apk",
@@ -343,11 +344,24 @@ appium --base-path=/wd/hub
 cd TemplateAutomacaoAppiumFlutterDriverEJS/Tests
 npm run wdio
 ```
-2. Para gerar o report no allure, rode o comando. Caso o report não for gerado automaticamente
+<!-- 2. Para gerar o report no allure, rode o comando. Caso o report não for gerado automaticamente
 
 ```bash
 cd TemplateAutomacaoAppiumFlutterDriverEJS/Tests
 npm run allure-report
-```
+``` -->
 
+#### Soluções
+
+1. Se houver o erro ao rodar o teste, referente ao appium: HTTP Could not start REST http interface listener - Rode o comando de acordo com solução. Para matar o processo do tipo PID - [Appium Question. If "listen eaddrinuse: address already in use", how to stop it? why it didn't stop?](https://stackoverflow.com/questions/61122027/appium-question-if-listen-eaddrinuse-address-already-in-use-how-to-stop-it) 
+
+```bash
+netstat -ano|findstr "PID :4723"
+taskkill /pid {PIDNumber} /f
+```
+2.  Se houver o erro ao rodar o teste, Error: "ts-node/esm/transpile-only 'resolve'" - Rode o comando de acordo com solução - [Error: "ts-node/esm/transpile-only 'resolve'" did not call the next hook in its chain and did](https://stackoverflow.com/questions/75471228/error-ts-node-esm-transpile-only-resolve-did-not-call-the-next-hook-in-its) 
+
+```bash
+npm i -D typescript ts-node
+```
 ____________________________________________
