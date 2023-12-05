@@ -16,13 +16,13 @@ class CountPage {
         this.btnIncrement = find.byTooltip('Increment');
     }
 
-    setTextValue = (value) => {
-        this.txtValue = find.byText(`${value}`);
+    setTextValue = async (value) => {
+       this.txtValue = await find.byText(`${value}`);
     }
 
     toIncrement = async (timesToClick) =>{
         let times = 0;
-        await waitUntilElemetExist(this.btnIncrement);
+        waitUntilElemetExist(this.btnIncrement);
         for (times; times < timesToClick; times++){
             await driver.elementClick(this.btnIncrement);
         }
@@ -30,14 +30,14 @@ class CountPage {
 
     toDecrement = async (timesToClick) =>{
         let times = timesToClick;
-        await waitUntilElemetExist(this.btnDecrement);
+        waitUntilElemetExist(this.btnDecrement);
         for (times; times > 0; times--){
             await driver.elementClick(this.btnDecrement);
         }
     }
 
     toRestore = async () =>{
-        await waitUntilElemetExist(this.btnRestore);
+        waitUntilElemetExist(this.btnRestore);
         await driver.elementClick(this.btnRestore);
     }
 }

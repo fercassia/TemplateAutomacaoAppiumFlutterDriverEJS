@@ -10,6 +10,8 @@ const { count } = require('console');
 describe('Tests count page', () => {
     beforeEach (async () => {
         const initialValue = '0';
+
+        await countPage.toRestore();
         await countPage.setTextValue(initialValue);
     }),
     
@@ -38,7 +40,7 @@ describe('Tests count page', () => {
     })
 
     it('should decrement until value become 4', async()=>{
-        //Arrange 
+        //Arrange
         const incrementTimes = 10;
         const decrementTimes = 6;
         const result = 4;
@@ -52,6 +54,39 @@ describe('Tests count page', () => {
         //Assert
         const getNewValue = await driver.getElementText(countPage.txtValue);
         await assert.strictEqual(getNewValue,'4');
+    })
+
+    it('should restore to 0', async()=>{
+        //Arrange
+        const incrementTimes = 15;
+        const result = 0;
+
+        await countPage.setTextValue(result);
+
+        //Action
+        await countPage.toIncrement(incrementTimes);
+        await countPage.toRestore();
+
+        //Assert
+        const getNewValue = await driver.getElementText(countPage.txtValue);
+        await assert.strictEqual(getNewValue,'0');
+    })
+
+    it('should stay 0 when try to decrement more times than value incremented', async()=>{
+        //Arrange
+        const incrementTimes = 4;
+        const decrementTimes = 6;
+        const result = 0;
+
+        await countPage.setTextValue(result);
+
+        //Action
+        await countPage.toIncrement(incrementTimes);
+        await countPage.toDecrement(decrementTimes);
+
+        //Assert
+        const getNewValue = await driver.getElementText(countPage.txtValue);
+        await assert.strictEqual(getNewValue,'0');
     })
 })
 
