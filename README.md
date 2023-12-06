@@ -171,6 +171,7 @@ flutter pub get
 
 ```bash
 dev_dependencies:
+    test: any
     flutter_test:
         sdk: flutter
     flutter_driver:
