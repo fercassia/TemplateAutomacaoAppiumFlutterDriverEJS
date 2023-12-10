@@ -1,3 +1,6 @@
+const { execFileSync } = require('child_process');
+const { join } = require('path');
+
 exports.config = {
     //
     // ====================
@@ -61,9 +64,10 @@ exports.config = {
         'appium:app': '../flutter_application/build/app/outputs/flutter-apk/app-debug.apk',
         'appium:appPackage': 'com.example.flutter_application',
         'appium:appActivity': 'com.example.flutter_application.MainActivity',
-        'appium:noReset': true,
-        'appium:newCommandTimeout': '2500',
-        'appium:sessionOverride': true
+        // 'appium:noReset': true,
+        'appium:newCommandTimeout': '8000',
+        'appium:sessionOverride': true,
+        'appium:fullReset': true
     }],
 
     //
@@ -282,8 +286,8 @@ exports.config = {
      * @param {number} result 0 - test pass, 1 - test fail
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
-     */
-    // after: function (result, capabilities, specs) {
+    //  */
+    // after: async function (result, capabilities, specs) {
     // },
     /**
      * Gets executed right after terminating the webdriver session.
@@ -303,6 +307,9 @@ exports.config = {
      */
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
+    onComplete: function () {
+        execFileSync(join(__dirname, './kill-nodeprocess.bat'));       
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session
