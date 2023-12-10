@@ -251,7 +251,12 @@ dom-testing-library.
 ? Do you want me to run `npm install` Yes
 ```
 
-3. Instale o pacote ```assert``` com dev dependence para validar e verificar algumas ações
+3. Instale o pacote para instalar o mecanismo de execução TypeScript e REPL para Node.js.
+```bash
+npm i -D typescript ts-node
+```
+
+4. Instale o pacote ```assert``` com dev dependence para validar e verificar algumas ações
 
 ```bash
 npm i -D assert
