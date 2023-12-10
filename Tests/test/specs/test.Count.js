@@ -29,7 +29,7 @@ describe('Tests count page', () => {
     it('Error to allure report wrong Text', async()=>{
         const txt = countPage.txtHowManyTimes;
         await assert.strictEqual(await driver.getElementText(txt),
-            'You have pushed the button this many times:')
+            'Youuuu have pushed the button this many times:')
     }),
     it('Error to allure report wrong count', async()=>{
         //Arrange 
