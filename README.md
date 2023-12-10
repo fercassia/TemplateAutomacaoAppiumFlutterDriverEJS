@@ -108,7 +108,7 @@ ii. Se o update estiver disponivel
 
 8. Instale o Appium inspector ou Flutter inspector, conforme a documentação
 
-i. ATENÇÃO: O appium inspector para inspecionar aplicativos flutter, não conseguem usar identificador único, geralmente precisa-se utilizar o XPath, tornando menos infeciente para inspecionar. Mas, se não possuir acesso ao codigo fonte da aplicação, é indicado utilizar o appium inspector, porém, se tem acesso ao codigo, é mais indicado o uso do Flutter inspector.
+i. ATENÇÃO: O appium inspector para inspecionar aplicativos flutter, não consegue usar identificador único, geralmente precisa-se utilizar o XPath, tornando menos infeciente para inspecionar. Mas, se não possuir acesso ao codigo fonte da aplicação, é indicado utilizar o appium inspector, porém, se tem acesso ao codigo, é mais indicado o uso do Flutter inspector.
 
 a. Para mais informações, leia esse artigo: [Flutter Integration Automated Test Using Appium — 3- Native Element Inspection](https://medium.com/@aradhya.1441/flutter-integration-automated-test-using-appium-3-native-element-inspection-21e04ba326c6)
 
@@ -276,6 +276,8 @@ baseUrl: 'http://localhost',
 
 6. Configure os capabilities do appium no arquivo ```wdio.conf.js``` como o exemplo abaixo:
 
+__obs__: Para descobrir mais sobre capabilities ou entender a funcionalidade de cada parâmetro, olhe na documentação do appium, na parte de capabilities - [Clique aqui](https://appium.io/docs/en/2.1/guides/caps/)
+
 i. Nesse cenário estamos configurando apenas o android.
 
 ```bash
@@ -325,7 +327,9 @@ i. automationName se ```UIAutomator2``` abre o aplicativo no appium inspector, s
   "appium:app": "C:\\Users\\{users}\\OneDrive\\Documents\\TemplateAutomacaoAppiumFlutterDriverEJS\\flutter_application\\build\\app\\outputs\\apk\\debug\\app-debug.apk",
   "appium:appPackage": "com.example.flutter_application",
   "appium:appActivity": "com.example.flutter_application.MainActivity",
-  "appium:noReset": true
+  "appium:noReset": true,
+  "appium:newCommandTimeout": "7200",
+  "appium:sessionOverride": true,
 }
 ```
 
