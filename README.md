@@ -261,14 +261,6 @@ npm i -D typescript ts-node
 ```bash
 npm i -D assert
 ```
-<!-- 
-4. Instale o comando para instalar o pacote allure-commandline salvando como dev dependecie
-
-```bash
-npm i -D allure-commandline
-``` -->
-
-<!-- i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter) -->
 
 5. Configure o arquivo ```wdio.conf.js``` encontre as variáveis ```path``` e a ```baseUrl```, e adicione os valores demonstrados abaixo:
 
@@ -301,6 +293,16 @@ i. Nesse cenário estamos configurando apenas o android.
 ```
 
 __obs__: Caso houver alguma dúvida ou dificuldade, procure essas referências para auxilio: [Documentação do Appium](https://appium.io/docs/en/2.1/),[Simplifying Flutter App Automation](https://dev.to/bhadmus/simplifying-flutter-app-automation-2abe) e [Appium in JavaScript](https://testautomationu.applitools.com/appium-javascript-tutorial/)
+
+### Integração com Allure Report
+
+1. Instale o comando para instalar o pacote allure-report salvando como dev dependecie
+
+```bash
+npm i -D @wdio/allure-reporter
+``` 
+
+<!-- i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter) -->
 
 #### PROJETO JÁ CRIADO:
 

@@ -18,12 +18,12 @@ describe('Tests count page', () => {
     it('should see the text in count page', async()=>{
         const txt = countPage.txtHowManyTimes;
         await assert.strictEqual(await driver.getElementText(txt),
-            'You have pushed the button this many times:')
+            'Youu have pushed the button this many times:')
     }),
 
     it('should 0 as initial value', async()=>{
         const txtValue = countPage.txtValue;
-        await assert.strictEqual(await driver.getElementText(txtValue),'0')
+        await assert.strictEqual(await driver.getElementText(txtValue),'1')
     }),
 
     it('should increment until value become 2', async()=>{
@@ -86,7 +86,7 @@ describe('Tests count page', () => {
 
         //Assert
         const getNewValue = await driver.getElementText(countPage.txtValue);
-        await assert.strictEqual(getNewValue,'0');
+        await assert.strictEqual(getNewValue,'1');
     })
 })
 
