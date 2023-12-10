@@ -302,6 +302,11 @@ __obs__: Caso houver alguma dúvida ou dificuldade, procure essas referências p
 npm i -D @wdio/allure-reporter
 ``` 
 
+2. Instale o comando para instalar o alure commandline para auto geração o report
+```bash
+npm i -D allure-commandline
+``` 
+
 <!-- i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter) -->
 
 #### PROJETO JÁ CRIADO:
@@ -358,12 +363,12 @@ appium --base-path=/wd/hub
 cd TemplateAutomacaoAppiumFlutterDriverEJS/Tests
 npm run wdio
 ```
-<!-- 2. Para gerar o report no allure, rode o comando. Caso o report não for gerado automaticamente
+2. Para gerar o report no allure, rode o comando.
 
 ```bash
 cd TemplateAutomacaoAppiumFlutterDriverEJS/Tests
 npm run allure-report
-``` -->
+```
 
 #### Soluções
 

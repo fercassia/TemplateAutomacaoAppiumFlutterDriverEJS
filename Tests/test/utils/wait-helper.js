@@ -1,7 +1,7 @@
 const { $ } = require("webdriverio");
 
 class WaitHelper {
-    waitUntilElemetExist = async (element, timeout = 3000) => {
+    waitUntilElemetExist = async (element, timeout = 1000) => {
        await element.waitForExist({timeout});
     }
 
