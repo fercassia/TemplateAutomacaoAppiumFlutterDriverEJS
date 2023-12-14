@@ -2,7 +2,7 @@
 
 Testes automatizados mobile utilizando um appium flutter driver com java script
 
-GitHub do projeto - [clique aqui](https://github.com/fercassia/)
+GitHub do projeto - [clique aqui](https://github.com/fercassia/TemplateAutomacaoAppiumFlutterDriverEJS)
 
 Esses testes que foram criados inicialmente para demonstração de como funciona a ferramenta e como seria os testes automatizados.
 ____________________________________________
