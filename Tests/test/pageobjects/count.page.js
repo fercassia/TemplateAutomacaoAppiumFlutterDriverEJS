@@ -9,15 +9,15 @@ class CountPage {
      * define selectors using getter methods
      */
     constructor(){
+        this.value;
         this.txtHowManyTimes = find.byText('You have pushed the button this many times:');
-        this.txtValue;
         this.btnDecrement = find.byTooltip('Decrement');
         this.btnRestore = find.byTooltip('Restore');
         this.btnIncrement = find.byTooltip('Increment');
     }
 
-    setTextValue = async (value) => {
-       this.txtValue = await find.byText(`${value}`);
+    setValue = async (value) => {
+       this.value = find.byText(`${value}`);
     }
 
     toIncrement = async (timesToClick) =>{

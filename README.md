@@ -311,13 +311,23 @@ npm i -D allure-commandline
 
 #### PROJETO JÁ CRIADO:
 
-1. Com o projeto clonado, rode o comando na pasta ```Tests```:
+1. Com o projeto clonado, rode o comando na pasta ```Tests/```:
 
 ```bash
 npm install
 ```
 
-### Appium
+2. Rode o arquivo ```main.dart``` do flutter, para gerar o apk
+
+i. Mas antes de rodar o arquivo, verfique se pegou as atualizações do fluter ```flutter pub get```
+
+3. Entre no diretório ```cd Tests/```
+
+```bash
+npm run wdio
+```
+
+### Appium (Não obrigatório, pois o appium pode ser configurado no projeto)
 
 1. Comando para rodar o servidor do appium
 
