@@ -148,7 +148,7 @@ __obs:__ Para facilitar a instalação dos passos 2 e 4.i, pode seguir esses ví
 __obs:__ Se houver se erro de compatibilidade for exibido após rodar o comando ```flutter doctor --android-licenses```, seguir a orientação descrita na discussão da issue [flutter doctor --android-licenses not working due to java.lang.UnsupportedClassVersionErro](https://github.com/flutter/flutter/issues/120388)
 ____________________________________________
 
-### Passos para Instalação e Configuração do Robot+Flutter Driver+Appium
+### Passos para Instalação e Configuração Flutter Driver+Appium
 
 ### Projeto Flutter
 
