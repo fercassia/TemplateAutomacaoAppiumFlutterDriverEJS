@@ -16,8 +16,7 @@ ____________________________________________
 - Orquestrador de testes - [Flutter Driver](https://api.flutter.dev/flutter/flutter_driver/flutter_driver-library.html)
 - Biblioteca Appium Client para Java Script(Node)- [WebdriverIO](https://webdriver.io/)
 - Servidor Appium 2 - [Appium 2.1](https://appium.io/docs/en/2.1/)
-- Ferramenta de inspesionar - [Appium Inspector](https://github.com/appium/appium-inspector) ou [Flutter Inspector](https://docs.flutter.dev/tools/devtools/inspector?gclid=Cj0KCQiAyKurBhD5ARIsALamXaFzJcGS9DHIg2e4HTyzEgUHq5_bLy51wqIxKRrzx5mrO5rCsFTLQ1UaAhXGEALw_wcB&gclsrc=aw.ds)
-- Appium Flutter Driver - [Instalação Appium Flutter Driver](https://github.com/appium/appium-flutter-driver#installation)
+- Ferramenta de inspesionar - [Flutter Inspector](https://docs.flutter.dev/tools/devtools/inspector?gclid=Cj0KCQiAyKurBhD5ARIsALamXaFzJcGS9DHIg2e4HTyzEgUHq5_bLy51wqIxKRrzx5mrO5rCsFTLQ1UaAhXGEALw_wcB&gclsrc=aw.ds)
 ____________________________________________
 ## Instalação
 
@@ -68,69 +67,11 @@ iii. Set o platform-tools do android studio na variável de ambiente do usuário
 
 i. instale a extensão ```Flutter```
 
-6. Instale o Appium
+6. Use Flutter inspector, conforme a documentação
 
-i. ATENÇÃO: Versão desktop do Appium foi descontinuada, por problemas de segurança. Diante disso é indicado a instalação do appium pelo terminal.
-   
-ii. Após instalar o appium, rode-o. Mas Antes, set a permissão para rodar o appium pelo terminal
-    ```C:\Users\LINQ> Set-ExecutionPolicy RemoteSigned ```
-
-   [Fonte: "Execução de scripts foi desabilitada neste sistema"?](https://pt.stackoverflow.com/questions/220078/o-que-significa-o-erro-execu%C3%A7%C3%A3o-de-scripts-foi-desabilitada-neste-sistema)
-
-7. Instale os drivers do appium
-
-i. Rode o comando abaixo para instalar o driver appium flutter driver
-
-```bash
-    appium driver install --source=npm appium-flutter-driver
-```
-
-ii. Rode o comando abaixo para instalar o appium junto com os drivers de automação
-
-a. Nessa automação, está sendo usado apenas o driver para automação de android ```UIAutomator2```
-
-```bash
-    npm install --location=global appium --drivers=xcuitest,uiautomator2
-```
-
-__Obs:__ Para verificar se há algum update rode os comandos abaixo:
-
-i. Para verificar os drivers
-
-```bash
-    appium driver list --updates
-```
-ii. Se o update estiver disponivel
-
-```bash
-    appium driver update xcuitest
-```
-
-8. Instale o Appium inspector ou Flutter inspector, conforme a documentação
-
-i. ATENÇÃO: O appium inspector para inspecionar aplicativos flutter, não consegue usar identificador único, geralmente precisa-se utilizar o XPath, tornando menos infeciente para inspecionar. Mas, se não possuir acesso ao codigo fonte da aplicação, é indicado utilizar o appium inspector, porém, se tem acesso ao codigo, é mais indicado o uso do Flutter inspector.
+i. ATENÇÃO: O appium inspector para inspecionar aplicativos flutter, não consegue usar identificador único, geralmente precisa-se utilizar o XPath, tornando menos infeciente para inspecionar. Mas, se não possuir acesso ao codigo fonte da aplicação, é indicado utilizar o appium inspector, porém, se tem acesso ao codigo, é mais indicado o uso do Flutter inspector. No caso deste projeto estamos usando Flutter inspector.
 
 a. Para mais informações, leia esse artigo: [Flutter Integration Automated Test Using Appium — 3- Native Element Inspection](https://medium.com/@aradhya.1441/flutter-integration-automated-test-using-appium-3-native-element-inspection-21e04ba326c6)
-
-ii. __Appium inspector__
-
-a. Baixe a release e instale de acordo com a documentação
-
-b. Configure o appium inspector
-
-__obs:__ O Appium inspector funcionar precisa aprovar o Cors
-
-- Após a instalação encontre o arquivo ```settings``` na pasta de instalação do appium inspector 
-
-    ```bash
-    C:\Users\{user}\AppData\Roaming\appium-inspector\settings.json
-    ```
-
-- No arquivo adicione uma configuração nos objetos ```advanced```
-
-    ```bash
-    "advanced":{"allowCors":true,"allowUnauthorized":true}
-    ```
 
 iii. __Flutter inspector__
 
@@ -142,7 +83,6 @@ a. Abra no visual studio code de acordo com a documentação [Instalacao Devtool
 
     ```Flutter: Open DevTools``` e em seguida ```Open Widged Inspector Page```
 
-    
 __obs:__ Para facilitar a instalação dos passos 2 e 4.i, pode seguir esses vídeos [Como Instalar o Flutter no Windows: tudo o que você precisa saber](https://www.youtube.com/watch?v=dpppZ9ySJSY) e [Como Configurar o Emulador Android para Flutter](https://www.youtube.com/watch?v=gNYNvHUSW1s).
 
 __obs:__ Se houver se erro de compatibilidade for exibido após rodar o comando ```flutter doctor --android-licenses```, seguir a orientação descrita na discussão da issue [flutter doctor --android-licenses not working due to java.lang.UnsupportedClassVersionErro](https://github.com/flutter/flutter/issues/120388)
@@ -206,13 +146,7 @@ npm init
 
 2. Instale pacote webdriverIO via npm utilizando uma das formas abaixo
 
-i. o pacote webdriveio sozinho, a instalação será na dependencia dev
-
-```bash
-npm i -D webdriverio
-```
-
-ii. o pacote ```@wdio/cli``` que irá setar as configurações do projeto, a instalação será na dependencia dev
+i. Instale o pacote ```@wdio/cli``` que irá setar as configurações do projeto, a instalação será na dependencia dev
 
 ```bash
 npm i -D @wdio/cli
@@ -227,28 +161,6 @@ npm i -D appium appium-flutter-driver appium-flutter-finder @wdio/cli
 b. Rode o comando para iniciar ou alterar a configuração do pacote ```@wdio```
 ```bash
 npx wdio config
-```
-
-c. Exemplo das configurações (os passos de diretório foram removidos neste exemplo):
-
-```bash
-? What type of testing would you like to do? E2E Testing - of Web or Mobile Applications
-? Where is your automation backend located? On my local machine
-? Which environment you would like to automate? Mobile - native, hybrid and mobile web apps, on Android or iOS
-? Which mobile environment you would like to automate? Android - native, hybrid and mobile web apps, tested on emulators and real devices 
-    > using UiAutomator2 (https://www.npmjs.com/package/appium-uiautomator2-driver)
-? Which framework do you want to use? Mocha (https://mochajs.org/)
-? Do you want to use a compiler? No!
-? Do you want WebdriverIO to autogenerate some test files? Yes
-? Do you want to use page objects (https://martinfowler.com/bliki/PageObject.html)? Yes
-? Which reporter do you want to use? spec
-? Do you want to add a plugin to your test setup? wait-for: utilities that provide functionalities to wait for certain conditions till 
-a defined task is complete.
-   > https://www.npmjs.com/package/wdio-wait-for, Testing Library: utilities that encourage good testing practices laid down by        
-dom-testing-library.
-   > https://testing-library.com/docs/webdriverio-testing-library/intro
-? Do you want to add a service to your test setup? appium
-? Do you want me to run `npm install` Yes
 ```
 
 3. Instale o pacote para instalar o mecanismo de execução TypeScript e REPL para Node.js.
@@ -305,9 +217,7 @@ npm i -D @wdio/allure-reporter
 2. Instale o comando para instalar o alure commandline para auto geração o report
 ```bash
 npm i -D allure-commandline
-``` 
-
-<!-- i.Configure a geração do report automatico de acordo com a documentação - [WebdriverIO Allura Report](https://webdriver.io/docs/allure-reporter) -->
+```
 
 #### PROJETO JÁ CRIADO:
 
@@ -325,44 +235,6 @@ i. Mas antes de rodar o arquivo, verfique se pegou as atualizações do fluter `
 
 ```bash
 npm run wdio
-```
-
-### Appium (Não obrigatório, pois o appium pode ser configurado no projeto)
-
-1. Comando para rodar o servidor do appium
-
-```bash
-appium --base-path=/wd/hub
-```
-__obs:__ Se houver erro referente ao appium, entre na documentação do appium [Migrating from Appium 1.x to Appium 2.x](https://appium.io/docs/en/2.0/guides/migrating-1-to-2/#image-analysis-features-moved-to-plugin)
-
-2. Configurar o __Appium Inspector__ com os mesmos dados do arquivo ```wdio.conf.js```. Exemplo:
-
-i. automationName se ```UIAutomator2``` abre o aplicativo no appium inspector, se for ```flutter``` abre apenas a aplicação no emulador
-
-```bash
-{
-  "platformName": "Android",
-  "appium:automationName": "Flutter",
-  "appium:platformVersion": "12",
-  "appium:deviceName": "emulator-5554",
-  "appium:app": "C:\\Users\\{users}\\OneDrive\\Documents\\TemplateAutomacaoAppiumFlutterDriverEJS\\flutter_application\\build\\app\\outputs\\apk\\debug\\app-debug.apk",
-  "appium:appPackage": "com.example.flutter_application",
-  "appium:appActivity": "com.example.flutter_application.MainActivity",
-  "appium:noReset": true,
-  "appium:newCommandTimeout": "7200",
-  "appium:sessionOverride": true,
-}
-```
-
-ii. Se ainda houver dúvidas, consulte as documentações do appium e appium inspector
-
-iii. configurado o appium inspector, salve a configuração e se desejar rodar a aplicação com inspector clique no botão ```Start Session```
-    
-a. ATENÇÃO!!: Antes de iniciar a sessão, deve iniciar o servidor do appium com o comando abaixo:
-   
-```bash
-appium --base-path=/wd/hub
 ```
 
 #### Comandos
