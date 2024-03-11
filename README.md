@@ -12,7 +12,7 @@ ____________________________________________
 - Emulador Mobile - [Android Studio](https://acesse.dev/UokJ3)
 - Java 11 -  [Java JDK 11](https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
 - JavaScript (Node 18) - [NVM Windows](https://github.com/coreybutler/nvm-windows)
-- IDE de desenvolvimento (Sugestão) - [Visual Studio Code](httpscode.visualstudio.com)
+- IDE de desenvolvimento (Sugestão) - [Visual Studio Code](https://code.visualstudio.com/Download)
 - Orquestrador de testes - [Flutter Driver](https://api.flutter.dev/flutter/flutter_driver/flutter_driver-library.html)
 - Biblioteca Appium Client para Java Script(Node)- [WebdriverIO](https://webdriver.io/)
 - Servidor Appium 2 - [Appium 2.1](https://appium.io/docs/en/2.1/)
